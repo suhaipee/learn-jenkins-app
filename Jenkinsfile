@@ -6,7 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3.8.4-openjdk-17'
-                    args '-v /root/.m2:/root/.m2'
+                    args '--network jenkins -v /var/run/docker.sock:/var/run/docker.sock'
                     reuseNode true
                 }
             }
